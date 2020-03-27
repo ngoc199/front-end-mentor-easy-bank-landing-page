@@ -1,0 +1,18 @@
+@mixin transitions($delay, $type: ease)
+      transition: $delay $type
+      -moz-transition: $delay $type
+      -webkit-transition: $delay $type
+      -o-transition: $delay $type
+
+.btn
+      display: inline-block
+      padding: 0.7rem 2rem
+      color: $white
+      border-radius: 50px
+      text-decoration: none
+      @include transitions(0.5s)
+      &.btn-primary
+            @include background_linear_gradient(to bottom right, $lime_green, $bright_cyan)
+            &:hover
+                  color: $white
+                  opacity: 0.7

@@ -1,0 +1,92 @@
+@mixin display_flex($direction: row, $justify_content: start, $align_items: center)
+      display: flex
+      flex-direction: $direction
+      justify-content: $justify_content
+      align-items: $align_items
+      
+@mixin background_linear_gradient($direction, $color1, $color2)
+      background: linear-gradient($direction, $color1, $color2)
+
+.navbar
+      position: relative
+      display: flex
+      @include display_flex(row, space-between)
+      
+      .navbar-collapse
+            display: none
+            width: 50%
+            &.active
+                  display: block
+                  position: absolute
+                  background: $white
+                  width: 80%
+                  border-radius: 15px
+                  bottom: -13rem
+                  box-shadow: 0.5rem 0.5rem 0.5rem $dark_blue
+                  // Align Center
+                  left: 0
+                  right: 0
+                  margin-right: auto
+                  margin-left: auto
+
+                  .nav-item
+                        width: 100%
+                        text-align: center
+                  .nav-link
+                        display: inline-block
+                        width: 100%
+                        color: $dark_blue
+                        padding: 0.5rem 0
+                  .nav-item:first-child .nav-link
+                        border-top-left-radius: 15px
+                        border-top-right-radius: 15px
+                  .nav-item:last-child .nav-link
+                        border-bottom-left-radius: 15px
+                        border-bottom-right-radius: 15px
+
+                  .navbar-nav
+                        @include display_flex(column, space-between)
+            @include desktop()
+                  display: block
+      
+      .navbar-button
+            display: none
+            @include desktop()
+                  display: inline-block
+
+      // Toggler Button
+      .navbar-toggler
+            background: transparent
+            border: none
+            &.active
+                  .bar:first-child
+                        transform: translate(0, 0.3rem) rotate(45deg)
+                  .bar:nth-child(2)
+                        display: none
+                  .bar:last-child
+                        transform: translate(0, -0.2rem) rotate(-45deg)
+            .bar
+                  width: 1.5rem
+                  height: 0.2rem
+                  background: black
+                  margin-bottom: 0.3rem
+                  border-radius: 36%
+            .bar:last-child
+                  margin-bottom: 0
+            &:hover
+                  cursor: pointer
+            @include desktop()
+                  display: none
+
+      .navbar-nav
+            list-style: none
+            @include display_flex(row, space-between)
+
+      .nav-link
+            text-decoration: none
+            color: $grayish_blue
+            &:hover
+                  cursor: pointer
+                  color: $dark_blue
+                  background: linear-gradient(to left, $lime_green, $bright_cyan) left bottom no-repeat
+                  background-size: 100% 0.125rem

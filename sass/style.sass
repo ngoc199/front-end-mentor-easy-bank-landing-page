@@ -1,0 +1,93 @@
+@import './variables'
+@import './reboot'
+@import './layout'
+@import './navbar'
+@import './button'
+@import './images'
+@import './card'
+
+// HERO
+#hero
+      background: url('../images/bg-intro-mobile.svg') top /contain no-repeat
+      .grid-container
+            grid-template-columns: 1fr
+      
+            .col:first-child
+                  display: flex
+                  flex-direction: column
+                  justify-content: center
+                  align-items: center
+                  
+            .col:last-child
+                  grid-row: 1 / 2
+            
+            .button
+                  text-align: center
+            @include desktop()
+                  grid-template-columns: repeat(2, 1fr)
+                  .col:first-child
+                        align-items: flex-start
+                  .col:last-child
+                        grid-row: unset
+                  .button
+                        text-align: left
+      @include desktop()
+            background: url('../images/bg-intro-desktop.svg') no-repeat
+            background-position: 25rem -3rem
+            background-size: contain
+            background-color: $very_light_gray
+
+// FEATURES
+#features
+      background: $light_grayish_blue
+      .col img
+            margin-bottom: 1.5rem
+      .grid-container
+            grid-template-columns: 1fr
+            grid-gap: 2rem
+      @include desktop()
+            h2 ~ p
+                  width: 60%
+            .text-center
+                  text-align: left
+            .grid-container
+                  grid-template-columns: repeat(4, minmax(0, 1fr))
+
+// ARTICLES
+#articles
+      background: $very_light_gray
+      padding-bottom: 2rem
+      .grid-container
+            grid-template-columns: 1fr
+            grid-gap: 2rem
+            @include desktop()
+                  grid-template-columns: repeat(4, 1fr)
+      @include desktop()
+            .text-center
+                  text-align: left
+
+// FOOTER
+footer
+      background: $dark_blue
+      padding-top: 2rem
+      .col:first-child li
+            display: inline-block
+      svg 
+            margin: 1rem 0
+      ul
+            list-style: none
+            li
+                  margin-bottom: 1rem
+            a
+                  text-decoration: none
+                  color: $white
+      .btn
+            margin-bottom: 1rem
+      .grid-container
+            grid-template-columns: 1fr
+            @include desktop()
+                  grid-template-columns: repeat(4, minmax(0, 1fr))
+                  &.text-center
+                        text-align: left
+                  .col:last-child
+                        text-align: right

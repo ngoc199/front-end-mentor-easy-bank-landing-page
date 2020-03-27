@@ -1,0 +1,23 @@
+@mixin desktop()
+      @media ( min-width: #{$max_mobile_width + 1px} )
+            @content
+      
+#wrapper
+      width: 100%
+      max-width: $max_width
+
+.container
+      width: 90%
+      margin: 0 auto
+      padding: 15px 0
+
+.grid-container
+      display: grid
+      .col
+            width: 100%
+
+// TEXT
+.text-center
+      text-align: center
+.text-justify
+      text-align: justify
